@@ -1,3 +1,15 @@
+firsty i given you the zip files 
+which is a source code to biuld a hooking code with your own bypass lib 
+and other files although of zip lines that can tutrials how  you can make hooking for all types of games 
+that can supporting to the this zip fiels of the codes 
+
+
+
+
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 # Hook-Modding-tutorial
 Hook Modding tutorials
 VISIT MY OFFCIAL SITE YOU GET ALL TUOTIRALS AND HOOKING AND LIB MODDING CODES AND SCRIPTS 
