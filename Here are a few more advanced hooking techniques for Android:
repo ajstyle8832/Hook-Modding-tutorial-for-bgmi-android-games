@@ -1,0 +1,45 @@
+Here are a few more advanced hooking techniques for Android:
+
+### Import Hooking
+
+This hooks calls to imported functions by replacing the import address table (IAT).
+
+1. Find the app's IAT, usually called .dynstr and .dynsym.
+
+2. Iterate through it to find the target imported function name. 
+
+3. Get the original function address from the IAT.
+
+4. Override the address in the IAT with your hook function.
+
+Now calls to that imported function will hit your hook instead.
+
+### Inline Hooking
+
+This directly modifies the target function assembly to redirect execution. 
+
+1. Disassemble the target function using disassmbler like Capstone.
+
+2. Insert a jump instruction at the start to your hook function. 
+
+3. Save the original instructions overwritten by the jump.
+
+4. Execute the original instructions in your hook before returning.
+
+This hooks the function by hijacking the first few instructions.
+
+### Trampoline Hooking 
+
+Similar to inline hooking, but instead of overwriting target function instructions, you jmp to a trampoline containing your hook.
+
+1. Create a trampoline function with your hook logic. 
+
+2. Disassemble the target function.
+
+3. Add a jump to the trampoline at the start.
+
+4. Return from trampoline to target function after your hook.
+
+This avoids modifying the target function.
+
+So in summary, import, inline, and trampoline hooking involve directly modifying code dynamically to execute your hooks. They allow very granular control over execution flow.
