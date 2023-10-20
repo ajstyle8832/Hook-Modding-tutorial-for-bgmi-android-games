@@ -1,0 +1,58 @@
+Here are a few more hooking techniques that can be used in a main.cpp file on Android:
+
+### PLT/GOT Hooking
+
+This hooks functions by swapping the function address in the Procedure Linkage Table (PLT) to point to your hook instead of the original.
+
+1. Find the target function's PLT entry:
+
+```cpp
+void** targetFuncPLT = (void**) dlsym(RTLD_DEFAULT, "targetFunc@plt");
+```
+
+2. Save the original function address from the Global Offset Table (GOT):
+
+```cpp  
+void* origFunc = (void*)targetFuncPLT[0];
+```
+
+3. Write your hook function matching the original's prototype.
+
+4. Redirect PLT to your hook:
+
+```cpp
+*targetFuncPLT = (void*)myHook;
+```
+
+### LD_PRELOAD Hooking
+
+This works by preloading a shared library that contains hooks before the target library. 
+
+1. Write your hook functions in a separate .so file.
+
+2. Before loading the target library, preload your hook .so:
+
+```cpp
+setenv("LD_PRELOAD", "hook.so", 1);
+```
+
+3. The hooks in hook.so will take precedence over target functions.
+
+### Interposing Symbols
+
+You can force symbol resolution to your hooks instead of originals by interposing.
+
+1. Declare your hooks as interposable:
+
+```cpp
+__attribute__((interposable))
+void myHook() {
+  // ...
+}
+```
+
+2. Ensure your library is loaded before the target library.
+
+3. Symbol resolution will find your hooks first and use them.
+
+So in summary, PLT, LD_PRELOAD, and interposing are some other useful hooking techniques to know on Android.
