@@ -1,0 +1,35 @@
+Here are some steps to hook functions in an Android app using a main.cpp file:
+
+1. Identify the target library and function you want to hook. For example:
+
+#define targetLibName "libexample.so"
+void (*functionToHook)(int, char*);
+
+2. Get the address of the original function. You can use dlsym for this:
+
+functionToHook = (void (*)(int, char*)) dlsym(RTLD_DEFAULT, "functionName");
+
+3. Write your custom hook function that will replace the original. It should match the original function prototype:
+
+void myHook(int arg1, char* arg2) {
+  // custom code here 
+  
+  // call original function
+  functionToHook(arg1, arg2); 
+}
+
+
+4. Redirect execution to your hook function. You can use inline hooking for this:
+
+MemoryPatch patch(targetLibName, functionToHook, myHook); 
+patch.hook();
+
+5. Add logic in your hook function to control execution flow, log values, etc.
+
+6. Compile the main.cpp into a shared library.
+
+7. Load the shared library into your Android app, e.g. using loadLibrary() in Java.
+
+This will hook the target function and redirect it to your custom logic. 
+You can hook multiple functions by repeating these steps. 
+The key things are identifying the target, redirecting to a hook function, and loading the .so file.
