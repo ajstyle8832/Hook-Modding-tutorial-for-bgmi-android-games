@@ -14,10 +14,13 @@ that can supporting to the this zip fiels of the codes
 Hook Modding tutorials
 VISIT MY OFFCIAL SITE YOU GET ALL TUOTIRALS AND HOOKING AND LIB MODDING CODES AND SCRIPTS 
 
-http://hackingtech4u.shop  
-http://hackingtech4u.shop
-http://hackingtech4u.shop
-http://hackingtech4u.shop
+https://www.hookcoder.shop
+https://www.hookcoder.shop
+https://www.hookcoder.shop
+https://www.hookcoder.shop
+https://www.hookcoder.shop
+https://www.hookcoder.shop
+https://www.hookcoder.shop
 
 #antibanbypass 
 #esp      #modmenu 
